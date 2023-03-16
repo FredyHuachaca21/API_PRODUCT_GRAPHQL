@@ -1,0 +1,29 @@
+# src/main/resources/graphql/schema.graphqls
+type Query {
+    productos: [Producto]
+    categorias: [Categoria]
+    marcas: [Marca]
+}
+
+type Mutation {
+    createProducto(nombre: String, marcaId: String, categoriaId: String): Producto
+    createCategoria(nombre: String): Categoria
+    createMarca(nombre: String): Marca
+}
+
+type Producto {
+    id: ID
+    nombre: String
+    marca: Marca
+    categoria: Categoria
+}
+
+type Categoria {
+    id: ID
+    nombre: String
+}
+
+type Marca {
+    id: ID
+    nombre: String
+}
